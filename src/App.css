@@ -1,6 +1,8 @@
-.App {
+.container {
   text-align: center;
-  max-width: 1200px;
+  background: linear-gradient(90deg, rgba(172,203,238,1) 100%, rgba(231,240,253,1) 100%);
+  min-height: 100vh;
+  max-width:1200px;
 }
 
 .button{
@@ -26,18 +28,32 @@
   padding:30px;
   min-height: 100vh;
   }
+.home-page>h1{
+  width:auto;
+  font-family: 'Viaoda Libre', cursive;
+  background-color: rgba(12, 12, 181, 0.718);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  color:black;
+  font-weight: bold;
+  border-radius: 10px;
+}
 
   .carousel{
     display:flex;
     justify-content:center;
     gap:50px;
   }
-
+.login-container{
+  place-content: center;
+}
   .login-card{
     margin:15px;
     display:flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     padding: 25px;
     width:50%;
     border:5px solid;
@@ -72,6 +88,16 @@ border: 2px solid green;
 }
   .icons:hover{
     cursor: pointer;
+  }
+
+  .createjob{
+    display:flex;
+    flex-direction: column;
+    gap:10px;
+    padding:25px;
+    border:5px solid green;
+    margin:10px;
+    max-width: 900px;
   }
 
   @media(min-width:600px){

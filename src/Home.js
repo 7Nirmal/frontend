@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 export function Home(){
     const navigate = useNavigate();
+    localStorage.setItem("auth-token","");
     return (
         <div className='home-page'>
   <h1>JOB PORTAL SITE</h1>

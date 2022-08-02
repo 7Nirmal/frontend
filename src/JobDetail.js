@@ -4,7 +4,7 @@ import {API} from "./App";
 import { JobCard } from "./JobCard";
 import { useNavigate } from "react-router-dom";
 
-export function Jobdetails({token}){
+export function Jobdetails(){
     const [search,setSearch] = useState([]);
     const dosearch = (data)=>{
         console.log(data);
@@ -12,6 +12,8 @@ export function Jobdetails({token}){
 const navigate = useNavigate();
     const[data,setData] = useState([]);
     const jobdata = () =>{
+        let token = localStorage.getItem("auth-token");
+        console.log(token);
         fetch(`${API}/jobdetails`,{headers:{"x-auth-token":token}})
         .then(data =>data.json()).then((result)=>setData(result))
     }
@@ -22,12 +24,13 @@ const navigate = useNavigate();
      }
   
     return(
-        <div>
-        <input type="search" onChange={(event)=>setSearch(event.target.value)}></input>
-        <button type="submit" onClick={()=>dosearch(search)}> search</button>
-        <div className="job-container">
-{data.map((job,index)=><JobCard job={job} key={index} deletejob={deletejob}/>)}
-        </div>
-        </div>
+         <div>
+            <input type="search" onChange={(event)=>setSearch(event.target.value)}></input>
+            <button type="submit" onClick={()=>dosearch(search)}> search</button>
+            <div className="job-container">
+    {data ? data.map((job,index)=><JobCard job={job} key={index} deletejob={deletejob}/>):""}
+            </div>
+            </div> 
+       
     )
 }

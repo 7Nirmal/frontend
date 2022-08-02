@@ -2,10 +2,10 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import { API } from "./App";
+import { API } from "../App";
 
 const formValidationSchema = yup.object({
-  username: yup.string().email().required("enter email").min(8),
+  email: yup.string().email().required("enter email").min(8),
   password: yup.string().required("No password provided.").min(8),
   confirmpassword: yup
     .string()
@@ -29,7 +29,7 @@ export function RecruiterLogup() {
   const { handleSubmit, handleChange, touched, errors, handleBlur, values } =
     useFormik({
       initialValues: {
-        username: "",
+        email: "",
         password: "",
         confirmpassword: "",
       },
@@ -43,15 +43,15 @@ export function RecruiterLogup() {
   return (
     <form onSubmit={handleSubmit} className="login-card">
       <TextField
-        name="username"
+        name="email"
         type="email"
         label="Enter your Email ID"
         variant="outlined"
         value={values.firstname}
         onChange={handleChange}
         onBlur={handleBlur}
-        error={touched.username && errors.username}
-        helperText={touched.username && errors.username ? errors.username : ""}
+        error={touched.email && errors.email}
+        helperText={touched.email && errors.email ? errors.email : ""}
       />
       <TextField
         name="password"

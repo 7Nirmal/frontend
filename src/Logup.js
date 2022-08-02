@@ -5,7 +5,7 @@ import {useFormik} from 'formik';
 import * as yup from 'yup';
 import {API} from "./App"
 const formValidationSchema = yup.object({
-    username:yup.string().required('enter username').min(8),
+    username:yup.string().email().required('enter username').min(8),
     password: yup.string().required('No password provided.').min(8) ,
 confirmpassword: yup.string() .oneOf([yup.ref('password'), null], 'Passwords must match')
 }
@@ -33,7 +33,7 @@ fetch(`${API}/user/logup`,{method:"POST",body:JSON.stringify(values), headers:{"
         <form onSubmit={handleSubmit} className="login-card">
             <TextField name="username" 
 type="name"
- label="User Name" 
+ label="Enter your email address" 
  variant="outlined" 
  value={values.firstname} 
  onChange={handleChange} 
