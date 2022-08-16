@@ -8,23 +8,39 @@ import {Userlogin} from "./Userlogin";
 import { Logup } from './Logup';
 import { Jobdetails } from './JobDetail';
 import { Signup } from './Signup';
-import {Header} from './AppbarUser';
+import {AppBarUser} from './AppbarUser';
+import{Viewcandidates} from './Recruiter/Viewcandidates';
+import {Updateprofile} from './Updateprofile';
+import { Appliedjob } from './Appliedjobsuser';
+import { JobsDashboard } from './Recruiter/JobsDashboard';
+import { Editjob } from './Recruiter/Editjob';
+import {ScheduledCandidate} from "./Recruiter/Scheduledcandidates";
 export const API = "http://localhost:5000";
 
 function App() {
   
   return (
     <div className="container">
-      <Header/> 
  <Routes>
       <Route path="/" element={<Home/>}/> 
       <Route path="/home" element={<Home/>}/>        
     <Route path="/user-login" element={<Userlogin/>}/> 
+    <Route path="/user-logup" element={<Logup/>}/> 
+    <Route path="/appliedjobs" element={<Appliedjob/>}/> 
+
       <Route path="/jobspage" element={<Jobdetails/>}/> 
       <Route path="/apply" element={<Signup/>}/> 
+      <Route path="/update-profile/:id" element={<Updateprofile/>}/> 
+      <Route path="/editjob/:id" element={<Editjob/>}/> 
+      <Route path ="/viewcandidates/:id" element={<Viewcandidates/>}/> 
+      <Route path="/scheduledcandidates" element={<ScheduledCandidate/>}/> 
+
+
     <Route path="/recruiter-login" element={<Recruiterlogin/>}/> 
       <Route path="/recruiter-logup" element={<RecruiterLogup/>}/> 
       <Route path="/createjob" element={<Createjob/>}/> 
+      <Route path="/jobsdashboard" element={<JobsDashboard/>}/> 
+
       </Routes>
       
     </div>

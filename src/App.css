@@ -18,7 +18,7 @@
 .button>button:hover{
   cursor: pointer;
   transform:scale(1.5);
-  transition:0.5s;
+  transition:0.2s;
 }
 
 .home-page{
@@ -31,7 +31,7 @@
 .home-page>h1{
   width:auto;
   font-family: 'Viaoda Libre', cursive;
-  background-color: rgba(12, 12, 181, 0.718);
+  background-color: teal;
   text-transform: uppercase;
   letter-spacing: 2px;
   text-align: center;
@@ -48,17 +48,6 @@
 .login-container{
   place-content: center;
 }
-  .login-card{
-    margin:15px;
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 25px;
-    width:50%;
-    border:5px solid;
-    gap:10px;
-  }
 
   .education{
     display:grid;
@@ -71,24 +60,7 @@
     grid-gap:10px
   }
 
-  .job-container{
-    display:grid;
-    grid-template-columns: repeat(2,1fr);
-    gap:10px
-  }
-
-  .jobcard{
-margin:10px;
-padding:25px;
-border: 2px solid green;
-  }
-.icons{
-  display:flex;
-  gap:20px;
-}
-  .icons:hover{
-    cursor: pointer;
-  }
+  
 
   .createjob{
     display:flex;

@@ -1,8 +1,11 @@
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { API } from "../App";
+import swal from 'sweetalert';
+import { useNavigate } from "react-router-dom";
+
+
+
 
 const formValidationSchema = yup.object({
   email: yup.string().email().required("enter email").min(8),
@@ -14,7 +17,7 @@ const formValidationSchema = yup.object({
 
 
 export function RecruiterLogup() {
-    
+    const navigate= useNavigate();
   const getuser = (values) => {
     fetch(`${API}/recruiter/logup`, {
       method: "POST",
@@ -23,7 +26,20 @@ export function RecruiterLogup() {
     })
       .then((data) => data.json())
       .then((response) => {
-        alert(response.message);
+        if(response.message){
+          swal(response.message);
+          navigate("/recruiter-login");
+
+        }
+        else{
+          swal({
+            title: "Sucess",
+            text: "You have registered successfully",
+            icon: "success",
+            button: "ok",
+          });
+        }
+        navigate("/recruiter-login")
       });
   };
   const { handleSubmit, handleChange, touched, errors, handleBlur, values } =
@@ -41,49 +57,43 @@ export function RecruiterLogup() {
     });
 
   return (
-    <form onSubmit={handleSubmit} className="login-card">
-      <TextField
-        name="email"
-        type="email"
-        label="Enter your Email ID"
-        variant="outlined"
-        value={values.firstname}
-        onChange={handleChange}
-        onBlur={handleBlur}
-        error={touched.email && errors.email}
-        helperText={touched.email && errors.email ? errors.email : ""}
-      />
-      <TextField
-        name="password"
-        type="password"
-        placeholder="password"
-        label="Password"
-        variant="outlined"
-        value={values.password}
-        onChange={handleChange}
-        onBlur={handleBlur}
-        error={touched.password && errors.password}
-        helperText={touched.password && errors.password ? errors.password : ""}
-      />
-      <TextField
-        name="confirmpassword"
-        type="password"
-        placeholder="password"
-        label="Reenter-Password"
-        variant="outlined"
-        value={values.confirmpassword}
-        onChange={handleChange}
-        onBlur={handleBlur}
-        error={touched.confirmpassword && errors.confirmpassword}
-        helperText={
-          touched.confirmpassword && errors.confirmpassword
-            ? errors.confirmpassword
-            : ""
-        }
-      />
-      <Button variant="outlined" type="submit">
-        submit
-      </Button>
+    <div className="center">
+    <h1> Recruiter Logup</h1>
+    <form onSubmit={handleSubmit}>
+        <div className="txt_field">
+            <input type="email" name="email"
+            onChange={handleChange}
+            onBlur={handleBlur}
+            error={touched.email && errors.email}
+            />
+            <span></span>
+            <label>Enter email</label>
+            <p>{ touched.email && errors.email ? errors.email: ""}</p>
+
+        </div>
+        <div className="txt_field">
+            <input type="password" name="password"
+             onChange={handleChange}
+             onBlur={handleBlur}
+             error={touched.password && errors.password}/>
+            <span></span>
+            <label>Password</label>
+            <p>{ touched.password && errors.password? errors.password: ""}</p>
+        </div>
+        <div className="txt_field">
+            <input type="password" name="confirmpassword"
+             onChange={handleChange}
+             onBlur={handleBlur}
+             error={touched.confirmpassword && errors.confirmpassword}/>
+            <span></span>
+            <label>Confirm Password</label>
+            <p>{ touched.confirmpassword && errors.confirmpassword ? errors.confirmpassword: ""}</p>
+
+        </div>
+        <button type="Submit" className="login-btn"> Submit</button>
+        <div className="signup_link">
+        </div>
     </form>
+</div>
   );
 }

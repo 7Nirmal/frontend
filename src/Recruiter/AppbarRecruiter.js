@@ -38,9 +38,9 @@ export function Header(){
             Job Seeker
           </Typography>
           <Button color="inherit" onClick = {()=>navigate("/home")}>Home</Button>
-          <Button color="inherit" onClick = {()=>navigate("/apply")}>Create a job</Button>
-          <Button color="inherit" onClick = {()=>navigate("/jobspage")}>View created jobs</Button>
-          <Button color="inherit" onClick = {()=>navigate("/jobspage")}>Applied jobs</Button>
+          <Button color="inherit" onClick = {()=>navigate("/createjob")}>Create job</Button>
+          <Button color="inherit" onClick = {()=>navigate("/jobsdashboard")}>Jobs dashboard</Button>
+          <Button color="inherit" onClick = {()=>navigate("/scheduledcandidates")}>Scheduled candidates</Button>
           <Button color="inherit" onClick = {()=>navigate("/")}>Logout</Button>
 
         </Toolbar>

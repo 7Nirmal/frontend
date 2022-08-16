@@ -2,6 +2,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import {useState} from "react";
 import {API} from "../App";
+import {Header} from "./AppbarRecruiter";
 
 export function Createjob(){
 const [position,setPosition] = useState([]);
@@ -21,7 +22,7 @@ const Newjob = (position,company,location,ctcfrom,ctcto,expfrom,expto,skills) =>
      location: location,
      CTC: `${ctcfrom}-${ctcto}`,
      experience:`${expfrom} - ${expto}`,
-     skills:skills
+     skills:skills,
     }
     console.log(data);
     const token = localStorage.getItem("auth-token");
@@ -30,6 +31,8 @@ const Newjob = (position,company,location,ctcfrom,ctcto,expfrom,expto,skills) =>
     .then(data =>data.json()).then(()=>alert("new job added successfully"));
 }
     return(
+        <div>
+        <Header/>
         <div className="createjob">
 <TextField name="position" 
 label="Enter job position" 
@@ -99,5 +102,7 @@ onChange={(event)=>{setSkills(event.target.value)}}
     submit
   </Button>
         </div>
+        </div>
+
     )
 }

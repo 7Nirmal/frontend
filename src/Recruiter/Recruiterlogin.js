@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Link } from 'react-router-dom';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import {API} from "../App"
@@ -10,6 +10,7 @@ export function Recruiterlogin(){
     const navigate= useNavigate();
     const[email,setEmail] =useState([]);
     const[password,setPassword] = useState([]);
+
     const LoginCheck = (email,password) => {
         const userdata = {
             email:email,
@@ -19,30 +20,37 @@ export function Recruiterlogin(){
         fetch(`${API}/recruiter/login`,{method:"POST",body:JSON.stringify(userdata),headers:{"content-type": "application/json"}},)    
         .then(data => data.json())
         .then((response) => {alert(response.message);
-            localStorage.setItem("auth-token",response.token)})
-            .then(()=>navigate("/createjob"))
+            localStorage.setItem("auth-token",response.token);
+        if(response.token){
+            navigate("/createjob")
+        }})
+            
     }
 
     return (
     
-    <div className='login-card'>
-        <p>Login</p>
-<TextField name="username" 
-label="Enter registered email" 
-type="email"
-onChange={(event)=>{setEmail(event.target.value)}}   />
-<TextField
-name="password"
-type="password"
-placeholder="password"
-label="Password"
-onChange={(event)=>{setPassword(event.target.value)}}
-/>
-<Button variant="contained" color="secondary" onClick = {()=> { LoginCheck(email,password)}}>
-    submit
-  </Button>
-  <Button onClick={()=> navigate(`/recruiter-logup`)}>Not a user? click here to Sign Up!</Button>
-        </div>
+        <div>
+		<div className="center">
+		<h1>Recruiter Login</h1>
+		
+			<div className="txt_field">
+				<input type="email" name="email" onChange={(e)=>{setEmail(e.target.value)}}/>
+				<span></span>
+				<label>Enter your email</label>
+			</div>
+			<div className="txt_field">
+				<input type="password" name="password" onChange={(e)=>setPassword(e.target.value)}/>
+				<span></span>
+				<label>Password</label>
+			</div>
+			<div className="pass">Forget Password?</div>
+			<button  className="login-btn" onClick={()=>LoginCheck(email,password)}> Submit</button>
+			<div className="signup_link">
+				Not a Member ? <Link to="/recruiter-logup">Signup</Link>
+			</div>
+	
+	</div>
+	</div>
       
     )
 }

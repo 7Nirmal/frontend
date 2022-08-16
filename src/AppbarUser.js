@@ -8,7 +8,7 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import AdbIcon from '@mui/icons-material/Adb';
 
-export function Header(){
+export function AppBarUser(){
   
     const navigate = useNavigate();
 
@@ -41,6 +41,7 @@ export function Header(){
           <Button color="inherit" onClick = {()=>navigate("/home")}>Home</Button>
           <Button color="inherit" onClick = {()=>navigate("/apply")}>Apply for a job</Button>
           <Button color="inherit" onClick = {()=>navigate("/jobspage")}>Find jobs</Button>
+          <Button color="inherit" onClick = {()=>navigate("/appliedjobs")}>Applied jobs</Button>
           <Button color="inherit" onClick = {()=>navigate("/")}>Logout</Button>
 
         </Toolbar>
