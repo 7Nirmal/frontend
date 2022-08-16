@@ -15,7 +15,7 @@ import { Appliedjob } from './Appliedjobsuser';
 import { JobsDashboard } from './Recruiter/JobsDashboard';
 import { Editjob } from './Recruiter/Editjob';
 import {ScheduledCandidate} from "./Recruiter/Scheduledcandidates";
-export const API = "http://localhost:5000";
+export const API = "https://jobssekerbackend.herokuapp.com";
 
 function App() {
   
