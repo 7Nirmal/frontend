@@ -25,7 +25,6 @@ export function Userlogin(){
         .then((response) => {console.log(response); 
 			localStorage.setItem("auth-token",response.token);
 			localStorage.setItem("email",response.email);
-
 			if(response.token){
 				swal("sucess!", "You have signed in!", "success");
 				navigate("/apply")
@@ -52,7 +51,7 @@ export function Userlogin(){
 				<span></span>
 				<label>Password</label>
 			</div>
-			<div className="pass">Forget Password?</div>
+			{/* <div className="pass">Forget Password?</div> */}
 			<button  className="login-btn" onClick={()=>LoginCheck(email,password)}> Submit</button>
 			<div className="signup_link">
 				Not a Member ? <Link to="/user-logup">Signup</Link>

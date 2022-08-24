@@ -16,7 +16,7 @@ export function Home(){
             <button type="button" onClick = {()=>navigate("/recruiter-login")}> <img height ="75" width="100"  src="https://icon-library.com/images/recruiter-icon/recruiter-icon-22.jpg" alt="admin"/>
             <div>Recruiter</div>
             </button>  
-            <button type="button"  onClick = {()=>navigate("/user-login")}><img height ="75" width="100"  src="https://thumbs.dreamstime.com/b/applicant-business-find-search-candidate-icon-vector-illustration-applicant-business-find-search-candidate-icon-flat-style-175249378.jpg" alt="candiate"/>
+            <button type="button"  onClick = {()=>navigate("/user-login")}><img height ="75" width="100"  src="https://uxwing.com/wp-content/themes/uxwing/download/editing-user-action/find-job-icon.png" alt="candiate"/>
             <div>candidate</div>
             </button>  
             </div>

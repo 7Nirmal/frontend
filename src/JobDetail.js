@@ -7,10 +7,9 @@ import "./Jobdetail.css";
 export function Jobdetails(){
 
     const [search,setSearch] = useState([]);
-    const[apply,setApply] = useState(true);
 
-    const dosearch = (location)=>{
-const result = data.filter(job => job.location==location);
+    const dosearch = (position)=>{
+const result = data.filter(job => job.position==position);
 console.log(result);
 setData(result);
     }
@@ -47,7 +46,7 @@ console.log(data);
             <input type="search"  className="input" onChange={(event)=>setSearch(event.target.value)}></input>
             <button type="submit" onClick={()=>dosearch(search)} className="search-button" > search</button>
             <div className="job-container">
-     {data.map((job,index)=><JobCard job={job} key={index} apply={job.appliedcandidates.show} />)}
+     {data.map((job,index)=><JobCard job={job} key={index} />)}
             </div>
             </div> 
     )

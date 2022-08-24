@@ -6,6 +6,8 @@
   width: 29vw;
   background: white;
   border-radius: 10px;
+  border:3px solid #A1E1FA;
+  box-shadow: 0px 2px 2px #A1E1FA;
 }
 
 .center h1{
@@ -90,9 +92,9 @@
 }
 
 .login-btn:hover{
-  background: orange;
+  background: #FDD037;
   color: #e9f4fb;
-  transition: .5s;
+  transition: .2s;
 }
 
 .signup_link{

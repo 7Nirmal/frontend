@@ -4,14 +4,17 @@ import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import HideSourceIcon from '@mui/icons-material/HideSource';
 import {useState,useEffect} from "react";
-import {API} from "./App"
+import {API} from "./App";
+import swal from 'sweetalert';
 
 
-export function JobCard({job,apply}){
+export function JobCard({job}){
 const [toggle,setToggle] = useState(true);
+const[apply,setApply] = useState(true);
 
 
 const Applyjob =  (job) =>{
+  setApply(false);
   console.log(job);
 //    await fetch(`${API}/jobdetails/${id}`)
 //   .then(data => data.json()).then(result=> setJobfeed(result));
@@ -19,7 +22,7 @@ const Applyjob =  (job) =>{
 const user = JSON.parse(localStorage.getItem("user"));
   // setJobfeed ({job,candidate:{}})
  fetch(`${API}/applyjob`,{method:"POST",body:JSON.stringify({job:job,user:user}),headers:{"content-type":"application/json"},})
-   .then((data)=>data.json()).then(response=>alert(response.message));
+   .then((data)=>data.json()).then(response=>swal(response.message));
    //setApply(!apply);
 
 }

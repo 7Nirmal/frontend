@@ -3,6 +3,8 @@ import Button from '@mui/material/Button';
 import {useState} from "react";
 import {API} from "../App";
 import {Header} from "./AppbarRecruiter";
+import swal from 'sweetalert';
+
 
 export function Createjob(){
 const [position,setPosition] = useState([]);
@@ -28,7 +30,7 @@ const Newjob = (position,company,location,ctcfrom,ctcto,expfrom,expto,skills) =>
     const token = localStorage.getItem("auth-token");
     console.log(token);
     fetch(`${API}/jobdetails`,{method:"POST",body:JSON.stringify(data),headers:{"Content-Type":"application/json","x-auth-token":token}})
-    .then(data =>data.json()).then(()=>alert("new job added successfully"));
+    .then(data =>data.json()).then(()=>swal("sucess!","New job created successfully", "success"));
 }
     return(
         <div>

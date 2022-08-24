@@ -17,7 +17,7 @@ export function AppBarUser(){
         
      
      <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="static"  >
       <Container maxWidth="xl">
         <Toolbar>
         <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />

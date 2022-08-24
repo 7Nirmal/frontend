@@ -1,4 +1,5 @@
-import { Navigate, useNavigate,useParams} from 'react-router-dom';
+import "./Updateprofile.css";
+import { useNavigate,useParams} from 'react-router-dom';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import {useFormik} from 'formik';
@@ -7,6 +8,7 @@ import {API} from "./App"
 import { useState,useEffect} from 'react';
 import { AppBarUser } from './AppbarUser';
 import swal from 'sweetalert';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 
 const formValidationSchema = yup.object({
     firstname: yup.string().required(),
@@ -61,8 +63,13 @@ const user =JSON.parse(localStorage.getItem('user'));
       });
 
     return(
-      <div>
-  
+      <div className="Updateprofile">
+         <Button variant="outlined"  onClick={() => { navigate(-1); }} startIcon={<ArrowBackIosNewIcon  />}>
+  Back
+</Button>
+<h1 className="heading">Update Your Info!</h1>
+                <div className="form-container">
+
       <form onSubmit={handleSubmit} className='login-card'>
           <p>Personal Details</p>
   <TextField name="firstname" 
@@ -197,6 +204,7 @@ const user =JSON.parse(localStorage.getItem('user'));
       submit
     </Button>
           </form>
+          </div>
           </div>
   
     )

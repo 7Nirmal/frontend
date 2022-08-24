@@ -14,7 +14,7 @@ const formValidationSchema = yup.object({
     lastname: yup.string().required(),
     age: yup.number().required().positive().integer(),
     number: yup.number().required("enter within ten"),
-    email: yup.string().email(),
+    email: yup.string().email().required("make sure it is registered email id"),
     qualification:yup.string().required(),
     degree: yup.string().required(),
     department: yup.string().required(),   
@@ -28,13 +28,14 @@ export function Signup(){
     const navigate= useNavigate();
 
     const[candidate,setCandidate] = useState([]); 
+    
+    
 
     const getcandidate = () => {
-      
-      const email = {mail:localStorage.getItem('email')};
+      const email = localStorage.getItem('email');
       console.log(email);
 
-      fetch(`${API}/getcandidate`,{method:"POST",body:JSON.stringify(email),headers:{"Content-Type":"application/json"}})
+      fetch(`${API}/getcandidate`,{method:"POST",body:JSON.stringify({mail:email}),headers:{"Content-Type":"application/json"}})
       .then((data)=>data.json())
       .then((result)=>{
         if(result.message){
@@ -84,6 +85,7 @@ useEffect(()=>{getcandidate()},[]);
         candidate.length!=0 ? 
           <Filled candidate={candidate}/>
         : 
+        <div className="form-container">
           <form onSubmit={handleSubmit} className="login-card">
             <p>Personal Details</p>
             <TextField
@@ -255,10 +257,11 @@ useEffect(()=>{getcandidate()},[]);
               />
             </div>
 
-            <Button variant="outlined" type="submit">
+            <Button variant="outlined" type="submit" className="submit-button">
               submit
             </Button>
           </form>
+          </div>
         }
       </div>
     );
