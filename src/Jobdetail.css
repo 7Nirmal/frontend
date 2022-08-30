@@ -16,11 +16,23 @@
     background-color: orange;
     color:black;
 }
-
+.job-page{
+  width:100%;
+}
 .job-container{
     display:grid;
-    grid-template-columns: 1fr 1fr;
-    gap:10px
+    background: url("https://news.umanitoba.ca/wp-content/uploads/2020/10/Career-Month-Job-Posting-centre.jpg");
+    background-size: cover;
+    background-position: top;
+    background-position: center;
+    width:100%;
+    position: static;
+    min-height: 100vh;
+    grid-template-columns: 1fr ;
+    gap:10px;
+    place-content: center;
+    border:none;
+    
   }
 
   .jobcard{
@@ -32,6 +44,7 @@ border: 4px solid #091540;
 border-radius:20px;
 box-shadow: 4px 2px 2px #2691d9;;
 font-family:quilea;
+width:50%;
   }
 .icons{
   display:flex;
@@ -41,4 +54,9 @@ font-family:quilea;
 }
   .icons:hover{
     cursor: pointer;
+  }
+
+  .pagination{
+    margin:5px;
+ place-content: center;
   }

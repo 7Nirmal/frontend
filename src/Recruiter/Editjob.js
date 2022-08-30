@@ -4,6 +4,7 @@ import {useState,useEffect} from "react";
 import {API} from "../App";
 import { useParams } from 'react-router-dom';
 import {Header} from "./AppbarRecruiter"
+import swal from 'sweetalert';
 
 
 export function Editjob(){
@@ -52,10 +53,11 @@ function Updatejob({jobdata}){
         console.log(data);
         const token = localStorage.getItem("auth-token");
         fetch(`${API}/editjob/${id}`,{method:"POST",body:JSON.stringify(data),headers:{"Content-Type":"application/json","x-auth-token":token}})
-        .then(data =>data.json()).then((response)=>alert(response.message));
+        .then(data =>data.json()).then((response)=>swal(response.message));
     }
 
     return(
+        <div className="job-container">
         <div className="createjob">
 <TextField
 label="position"
@@ -114,6 +116,7 @@ onChange={(event)=>{setSkills(event.target.value)}}
 <Button variant="contained" color="secondary" onClick = {()=> { editjob(position,company,location,ctcfrom,ctcto,expfrom,expto,skills,jobdata._id)}}>
     submit
   </Button>
+        </div>
         </div>
 
     )

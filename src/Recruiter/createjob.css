@@ -1,0 +1,30 @@
+.create-job{
+    margin:15px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 25px;
+    gap:10px;
+    color:black;
+    font-weight: bold;
+    background: rgb(255 255 255 / 3%);
+    font-family: 'Mea Culpa', cursive;
+    font-size: 52px;
+
+  }
+.job-container{
+    position: relative;
+    top: 70%;
+    left: 12%;
+    background: url("https://www.kindpng.com/picc/m/765-7652284_hire-reactjs-development-job-portal-development-hd-png.png");
+    background-size: cover;
+    background-position: top;
+    background-position: center;
+    width:75%;
+    height:100%;
+    border:2px solid;
+    border-radius: 10px;
+margin-top:10px;
+padding:20px;
+box-shadow: 5px 5px 5px grey; 
+}

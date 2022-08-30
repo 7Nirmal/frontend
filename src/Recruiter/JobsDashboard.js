@@ -15,7 +15,7 @@ const nav = useNavigate();
     const getjobdata = () =>{
         let token = localStorage.getItem("auth-token");
         //console.log(token);
-        fetch(`${API}/jobdetails`,{headers:{"x-auth-token":token}})
+        fetch(`${API}/jobdetails/recruiter`,{headers:{"x-auth-token":token}})
         .then(data =>data.json()).then((result)=>setJobdata(result))
     }
 

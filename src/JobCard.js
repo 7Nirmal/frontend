@@ -53,7 +53,7 @@ const user = JSON.parse(localStorage.getItem("user"));
         ) : (
           ""
         )}
-        <p>{job.skills}</p>
+        <p><b>SKILLS:</b>{job.skills}</p>
         <div className="icons">
           <p>Apply<AddBoxIcon onClick={()=>{Applyjob(job)}} /></p>
           <p onClick={() => setToggle(!toggle)}>

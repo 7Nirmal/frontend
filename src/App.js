@@ -15,8 +15,9 @@ import { Appliedjob } from './Appliedjobsuser';
 import { JobsDashboard } from './Recruiter/JobsDashboard';
 import { Editjob } from './Recruiter/Editjob';
 import {ScheduledCandidate} from "./Recruiter/Scheduledcandidates";
+import { Viewresume } from './Recruiter/Viewresume';
 import { useSelector } from 'react-redux';
-export const API = "https://jobssekerbackend.herokuapp.com";
+export const API = "http://localhost:5000";
 
 function App() {
   return (
@@ -33,6 +34,8 @@ function App() {
       <Route path="/update-profile/:id" element={<Updateprofile/>}/> 
       <Route path="/editjob/:id" element={<Editjob/>}/> 
       <Route path ="/viewcandidates/:id" element={<Viewcandidates/>}/> 
+      <Route path ="/view-resume/:userid" element={<Viewresume/>}/> 
+
       <Route path="/scheduledcandidates" element={<ScheduledCandidate/>}/> 
 
 

@@ -1,0 +1,29 @@
+.home-page{
+    display:flex;
+    flex-direction: column;
+    gap:50px;
+    padding:30px;
+    min-height: 100vh;
+    background: url("https://news.umanitoba.ca/wp-content/uploads/2020/10/Career-Month-Job-Posting-centre.jpg");
+    background-size: cover;
+    background-position: top;
+    background-position: center;
+  
+    }
+  .title{
+    width:auto;
+    font-family: airone;
+    background-image: url("https://cutewallpaper.org/21/animated-background-gif/use-half-of-a-radial-background-as-animation-for-background-.gif");
+    background-size: cover;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-transform: uppercase;
+    font-size: 4rem;
+  }
+  
+    .carousel{
+      display:flex;
+      justify-content:center;
+      gap:50px;
+    }

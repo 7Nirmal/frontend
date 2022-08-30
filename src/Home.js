@@ -1,5 +1,6 @@
 import Carousel from 'react-bootstrap/Carousel';
 import { useNavigate } from 'react-router-dom';
+import "./home.css";
 
 
 export function Home(){
@@ -10,8 +11,8 @@ export function Home(){
 
     return (
         <div className='home-page'>
-  <h1>JOB PORTAL SITE</h1>
-            <p>For all Your job Needs</p>
+  <h1 className="title">JOB PORTAL SITE</h1>
+
             <div className="button">
             <button type="button" onClick = {()=>navigate("/recruiter-login")}> <img height ="75" width="100"  src="https://icon-library.com/images/recruiter-icon/recruiter-icon-22.jpg" alt="admin"/>
             <div>Recruiter</div>
@@ -20,8 +21,8 @@ export function Home(){
             <div>candidate</div>
             </button>  
             </div>
-            <div className="carousel">
-            <Carousel >
+            {/* <div className="carousel">
+                <Carousel >
       <Carousel.Item>
         <img
           className="d-block w-100"
@@ -38,7 +39,8 @@ export function Home(){
     
       </Carousel.Item>
       </Carousel>
-      </div>
+           
+      </div> */}
         </div>
     )
 }

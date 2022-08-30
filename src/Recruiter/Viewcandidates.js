@@ -10,8 +10,8 @@ import swal from 'sweetalert';
 
 
 export function Viewcandidates(){
+
 const {id} = useParams();
-//console.log(id);
 const[applied,setApplied] = useState([]);
 const appliedcandidate =  () =>{
     fetch(`${API}/getjob/${id}`).then(data=>data.json())
@@ -20,32 +20,32 @@ const appliedcandidate =  () =>{
 }
  useEffect(()=>{appliedcandidate()},[]);
 
-
+console.log(applied);
 
     return(
         <div className="candidate-container">
-         {applied.map((data,index)=><Candidatecard key={index} data={data} index={index} id={id}/>)}
-         
+      {applied.map((data,index)=>  <Candidatecard key={index} data={data} index={index} id={id}/>)}
         </div>
     )
 }
 
 
 function Candidatecard({data,index,id}){
+    const navigate = useNavigate();
+
     const[box,setBox] = useState(false);
     const[time,setTime] = useState(new Date());
     
-    const navigate = useNavigate();
     
-const remove = (index,id,email) =>{
+const remove = (index,id,userid) =>{
    // console.log(index,id);
-    fetch(`${API}/reject/${id}/${index}`,{method:"POST",body:JSON.stringify({email:email}),headers:{"content-type":"application/json"}})
+    fetch(`${API}/reject/${id}/${index}`,{method:"POST",body:JSON.stringify({userid:userid}),headers:{"content-type":"application/json"}})
     .then(data=>data.json()).then(()=>{swal("candidate rejected");navigate("/jobsdashboard")})
 
 }
 
- const scheduleinterview = (id,index,time,email) =>{
-    fetch(`${API}/schedule/${id}/${index}`,{method:"POST",body:JSON.stringify({time:time,email:email}),headers:{"content-type":"application/json"}})
+ const scheduleinterview = (id,index,time,userid) =>{
+    fetch(`${API}/schedule/${id}/${index}`,{method:"POST",body:JSON.stringify({time:time,userid:userid}),headers:{"content-type":"application/json"}})
      .then(data=>data.json()).then(()=>{swal("candidate scheduled for interview");navigate("/jobsdashboard")})
 
  }
@@ -64,16 +64,14 @@ const remove = (index,id,email) =>{
                       <p><b>Email:</b>{data.email}</p>
                       <p><b>Role:</b>{data.role}</p>
                       <p><b>Applied on:</b>{data.appliedDate}</p>
-           
-           
-           
-           
                    </Card.Text>
-                   <Button variant="danger" onClick={()=>{remove(index,id,data.email)}}>Reject</Button>
+                   <Button variant="danger" onClick={()=>{remove(index,id,data.id)}}>Reject</Button>
                    <Button variant="primary"  onClick={()=> setBox(!box)}>Schedule Interview</Button>  
+                   <Button variant="primary" onClick={()=>navigate(`/view-resume/${data.id}`)} >View Resume</Button>  
+
 {box?
 <div className="datebox"><DateTimePicker onChange={(e)=>{setTime(e)}} value={time} format="dd-MM-y h:mm:ss a" />
-<Button variant="primary"  onClick={()=> scheduleinterview(id,index,time,data.email)}>Set</Button>  
+<Button variant="primary"  onClick={()=> scheduleinterview(id,index,time,data.id)}>Set</Button>  
 </div> 
     :""}
                  </Card.Body>

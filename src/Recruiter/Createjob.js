@@ -4,6 +4,7 @@ import {useState} from "react";
 import {API} from "../App";
 import {Header} from "./AppbarRecruiter";
 import swal from 'sweetalert';
+import "./createjob.css";
 
 
 export function Createjob(){
@@ -35,7 +36,9 @@ const Newjob = (position,company,location,ctcfrom,ctcto,expfrom,expto,skills) =>
     return(
         <div>
         <Header/>
-        <div className="createjob">
+        <div className="job-container">
+        <div className="create-job">
+            <h1>Createjob</h1>
 <TextField name="position" 
 label="Enter job position" 
 type="text"
@@ -103,6 +106,7 @@ onChange={(event)=>{setSkills(event.target.value)}}
 <Button variant="contained" color="secondary" onClick = {()=> { Newjob(position,company,location,ctcfrom,ctcto,expfrom,expto,skills)}}>
     submit
   </Button>
+        </div>
         </div>
         </div>
 

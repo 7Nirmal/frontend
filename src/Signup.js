@@ -8,6 +8,7 @@ import {API} from "./App"
 import { useState,useEffect} from 'react';
 import { AppBarUser } from './AppbarUser';
 import {Updateprofile} from './Updateprofile';
+import swal from "sweetalert";
 
 const formValidationSchema = yup.object({
     firstname: yup.string().required(),
@@ -28,7 +29,8 @@ export function Signup(){
     const navigate= useNavigate();
 
     const[candidate,setCandidate] = useState([]); 
-    
+    const [pdfFile, setPdfFile]=useState(null);
+  const [pdfError, setPdfError]=useState('');
     
 
     const getcandidate = () => {
@@ -48,10 +50,38 @@ export function Signup(){
 
 useEffect(()=>{getcandidate()},[]);
 
+const allowedFiles = ['application/pdf'];
+const handleFile = (e) =>{
+  let selectedFile = e.target.files[0];
+  if(selectedFile){
+    if(selectedFile&&allowedFiles.includes(selectedFile.type)){
+      let reader = new FileReader();
+      reader.readAsDataURL(selectedFile);
+      reader.onloadend=(e)=>{
+        setPdfError('');
+        setPdfFile(e.target.result);
+      }
+      console.log(pdfFile);
+
+    }
+    else{
+      setPdfError('Not a valid pdf: Please select only PDF');
+      setPdfFile('');
+    }
+  }
+  else{
+    console.log('please select a PDF');
+  }
+}
+
     const Addcandidate = (values) =>{
+      const profile = {
+        data: values,
+        resume:pdfFile,
+      }
       fetch(`${API}/candidate`,
-      {method:"POST",body:JSON.stringify(values),
-      headers:{"Content-Type": "application/json"},}).then(data => data.json()).then((response)=>{alert("sucessfully created")})
+      {method:"POST",body:JSON.stringify(profile),
+      headers:{"Content-Type": "application/json"},}).then(data => data.json()).then((response)=>{swal("sucessfully created")})
       .then(()=>navigate("/jobspage"))
     }
 
@@ -256,6 +286,8 @@ useEffect(()=>{getcandidate()},[]);
                 helperText={touched.CTC && errors.CTC ? errors.CTC : ""}
               />
             </div>
+            <input type='file' className="form-control"  onChange={handleFile}></input>
+{pdfError&&<span className='text-danger'>{pdfError}</span>}
 
             <Button variant="outlined" type="submit" className="submit-button">
               submit
