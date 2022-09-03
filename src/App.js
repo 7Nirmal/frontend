@@ -17,7 +17,7 @@ import { Editjob } from './Recruiter/Editjob';
 import {ScheduledCandidate} from "./Recruiter/Scheduledcandidates";
 import { Viewresume } from './Recruiter/Viewresume';
 import { useSelector } from 'react-redux';
-export const API = "http://localhost:5000";
+export const API = "https://jobssekerbackend.herokuapp.com";
 
 function App() {
   return (
