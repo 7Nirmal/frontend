@@ -75,7 +75,10 @@ const handleFile = (e) =>{
 }
 
     const Addcandidate = (values) =>{
+      const email = localStorage.getItem('email');
+
       const profile = {
+        useremail: email,
         data: values,
         resume:pdfFile,
       }
