@@ -13,6 +13,10 @@ export function Userlogin(){
     const[email,setEmail] =useState([]);
     const[password,setPassword] = useState([]);
 
+	const handledemo = () =>{
+		setEmail("newuser@gmail.com");
+		setPassword("welcome@12345");
+	}
 
     const LoginCheck = (email,password) => {
         const userdata = {
@@ -42,21 +46,22 @@ export function Userlogin(){
 		<h1>Login</h1>
 		
 			<div className="txt_field">
-				<input type="email" name="email" onChange={(e)=>{setEmail(e.target.value)}}/>
+				<input type="email" name="email" onChange={(e)=>{setEmail(e.target.value)}} value={email}/>
 				<span></span>
 				<label>Enter your email</label>
 			</div>
 			<div className="txt_field">
-				<input type="password" name="password" onChange={(e)=>setPassword(e.target.value)}/>
+				<input type="password" name="password" onChange={(e)=>setPassword(e.target.value)} value={password}/>
 				<span></span>
 				<label>Password</label>
 			</div>
-			{/* <div className="pass">Forget Password?</div> */}
 			<button  className="login-btn" onClick={()=>LoginCheck(email,password)}> Submit</button>
 			<div className="signup_link">
 				Not a Member ? <Link to="/user-logup">Signup</Link>
 			</div>
-	
+	<div>
+		<button className="demo-btn" onClick={handledemo}>Demo Credentials</button>
+	</div>
 	</div>
 	</div>
 	)

@@ -13,6 +13,11 @@ export function Recruiterlogin(){
     const[email,setEmail] =useState([]);
     const[password,setPassword] = useState([]);
 
+    const handledemo = () =>{
+		setEmail("admin123@gmail.com");
+		setPassword("admin@123");
+	}
+
     const LoginCheck = (email,password) => {
         const userdata = {
             email:email,
@@ -39,12 +44,12 @@ export function Recruiterlogin(){
 		<h1>Recruiter Login</h1>
 		
 			<div className="txt_field">
-				<input type="email" name="email" onChange={(e)=>{setEmail(e.target.value)}}/>
+				<input type="email" name="email" onChange={(e)=>{setEmail(e.target.value)}} value={email}/>
 				<span></span>
 				<label>Enter your email</label>
 			</div>
 			<div className="txt_field">
-				<input type="password" name="password" onChange={(e)=>setPassword(e.target.value)}/>
+				<input type="password" name="password" onChange={(e)=>setPassword(e.target.value)} value={password}/>
 				<span></span>
 				<label>Password</label>
 			</div>
@@ -53,7 +58,8 @@ export function Recruiterlogin(){
 			<div className="signup_link">
 				Not a Member ? <Link to="/recruiter-logup">Signup</Link>
 			</div>
-	
+			<button className="demo-btn" onClick={handledemo}>Demo Credentials</button>
+
 	</div>
 	</div>
       

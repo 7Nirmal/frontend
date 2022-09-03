@@ -112,7 +112,19 @@
 .signup_link a:hover{
   text-decoration: underline;
 }
+.demo-btn{
+  border-radius: 5px;
+  width:150px;
+  padding:5px;
+  margin-bottom: 5px;
+  background-color: royalblue;
+  color:black;
+}
+.demo-btn:hover{
+  color:white;
+  background-color: royalblue;
 
+}
 /* .HomeAbout{
   width: 100vw;
   height: 25vh;
