@@ -1,27 +1,83 @@
+section{
+  background-image: linear-gradient(to right top, #4184c7, #3686c3, #2e88be, #2a8ab8, #2b8bb2);
+  height:100vh;
+}
 .home-page{
     display:flex;
     flex-direction: column;
     gap:50px;
     padding:30px;
-    min-height: 100vh;
-    background: url("https://news.umanitoba.ca/wp-content/uploads/2020/10/Career-Month-Job-Posting-centre.jpg");
-    background-size: cover;
-    background-position: top;
-    background-position: center;
-  
     }
-  .title{
-    width:auto;
-    font-family: airone;
-    background-image: url("https://cutewallpaper.org/21/animated-background-gif/use-half-of-a-radial-background-as-animation-for-background-.gif");
-    background-size: cover;
-    color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-    text-transform: uppercase;
-    font-size: 4rem;
+
+  
+.title-block{
+      background: url("https://t4.ftcdn.net/jpg/02/33/38/91/360_F_233389101_WqKEjOusRliEfCrKJkyAsBqtsdyrfqj1.jpg");
+      background-size: cover;
+      background-position: center;
+      height:300px;
+      color:#29B6F6;
+      border-radius: 0.5rem;
+      font-family: 'Lexend Deca', sans-serif;
+      text-transform: uppercase;
+      text-align: center;
+      font-size: 4rem;
+    }
+ .text{
+  margin-top: 50px;
+ }
+
+ .typewriter h1 {
+  color:#283593;
+  font-family: monospace;
+  font-size: 1rem;
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid #01579B; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation: 
+    typing 3.5s steps(30, end),
+    blink-caret .5s step-end infinite;  
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 500px; }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-right: .15em solid #01579B;}
+}
+
+
+    span{
+      letter-spacing: 5px;
+    }
+ 
+  
+  .button{
+    display:flex;
+    justify-content: center;
+    gap:30px;
+    /* color:#006BB9; */
+  }
+  .button > button{
+    display:block;
+    border-radius:10px;
+    background-color:#039BE5;
+  
   }
   
+  .button>button:hover{
+    cursor: pointer;
+    transform:scale(1.5);
+    transition:0.2s;
+  }
+
+
     .carousel{
       display:flex;
       justify-content:center;

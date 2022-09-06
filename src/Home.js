@@ -1,4 +1,3 @@
-import Carousel from 'react-bootstrap/Carousel';
 import { useNavigate } from 'react-router-dom';
 import "./home.css";
 
@@ -10,9 +9,15 @@ export function Home(){
     localStorage.setItem("user","");
 
     return (
+      <section>
         <div className='home-page'>
-  <h1 className="title">JOB PORTAL SITE</h1>
-
+          <div className="title-block">
+       <h1 className="text">JOB <span>PORTAL SITE</span></h1>
+       <div class="typewriter">
+  <h1>100+ Companies </h1>
+  <h1> 100K+ Candidate</h1>
+</div>
+            </div>
             <div className="button">
             <button type="button" onClick = {()=>navigate("/recruiter-login")}> <img height ="75" width="100"  src="https://icon-library.com/images/recruiter-icon/recruiter-icon-22.jpg" alt="admin"/>
             <div>Recruiter</div>
@@ -21,26 +26,7 @@ export function Home(){
             <div>candidate</div>
             </button>  
             </div>
-            {/* <div className="carousel">
-                <Carousel >
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F444195%2Fdreamjobgi.jpeg&w=700&op=resize"
-          alt="First slide"
-        />
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="https://www.pridestafffinancial.com/wp-content/uploads/sites/2/2019/04/Most20Attractive20Employee20Benefits20Beyond20Salary.jpg"
-          alt="First slide"
-        />
-    
-      </Carousel.Item>
-      </Carousel>
-           
-      </div> */}
         </div>
+        </section>
     )
 }

@@ -46,7 +46,7 @@ console.log(data);
          <div className="job-page">
             <AppBarUser/>
             {user ? <h1 style={{fontFamily:"AT.Allowe"}}>Apply Now!</h1> : <h1  style={{fontFamily:"AT.Allowe"}}>complete your profile!!</h1>}
-            <input type="search"  className="input" onChange={(event)=>setSearch(event.target.value)}></input>
+            <input type="search"  className="input" placeholder="job position or location"   onChange={(event)=>setSearch(event.target.value)}></input>
             <div className="pagination">
                 {buttons.map((num)=>
                 <Pagination key={num} >

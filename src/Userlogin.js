@@ -41,7 +41,7 @@ export function Userlogin(){
     }
    
     return (
-		<div>
+		<div className='login-container'>
 		<div className="center">
 		<h1>Login</h1>
 		
