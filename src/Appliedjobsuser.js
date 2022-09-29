@@ -14,6 +14,7 @@ const getuserjob = (id) => {
     fetch(`${API}/userjobs/${id}`).then((data)=>data.json().then((result)=>{setJob(result)}));
 }
     useEffect(()=>getuserjob(id),[])
+    console.log(job);
     return(
         <div>
             <AppBarUser/>
@@ -28,7 +29,9 @@ const getuserjob = (id) => {
                   <th>Status</th>
                 </tr>
               </thead>
-    { job.map((data,index)=><tbody>
+    { job.map((data,index)=>
+    {
+      return (<tbody key={index}>
                 <tr>
                   <td>{index+1}</td>
                   <td>{data.company}</td>
@@ -37,7 +40,8 @@ const getuserjob = (id) => {
                   <td>{data.status}</td>
 
                 </tr>
-              </tbody>)} 
+              </tbody>)})}
+              
 
               </Table>
         </div>
