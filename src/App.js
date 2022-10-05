@@ -21,7 +21,7 @@ export const API = "https://jobssekerbackend.herokuapp.com";
 
 function App() {
   return (
-    <div className="container">
+    <>
  <Routes>
       <Route path="/" element={<Home/>}/> 
       <Route path="/home" element={<Home/>}/>        
@@ -46,7 +46,7 @@ function App() {
 
       </Routes>
       
-    </div>
+    </>
   );
 }
 

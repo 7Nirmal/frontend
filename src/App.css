@@ -1,10 +1,4 @@
-.container {
-  text-align: center;
-  background: whitesmoke;
-  /* background: linear-gradient(90deg, rgba(172,203,238,1) 100%, rgba(231,240,253,1) 100%); */
-  min-height: 100vh;
-  max-width:100vw;
-}
+
 .login-container{
   place-content: center;
 }

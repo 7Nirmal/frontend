@@ -58,7 +58,7 @@ export function Recruiterlogin(){
 			<div className="signup_link">
 				Not a Member ? <Link to="/recruiter-logup">Signup</Link>
 			</div>
-			<button className="demo-btn" onClick={handledemo}>Demo Credentials</button>
+			<button className="demo-btn" onClick={handledemo} style={{"position":"relative","left":"30%"}}>Demo Credentials</button>
 
 	</div>
 	</div>

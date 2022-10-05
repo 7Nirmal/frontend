@@ -1,27 +1,27 @@
-section{
-  background-image: linear-gradient(to right top, #4184c7, #3686c3, #2e88be, #2a8ab8, #2b8bb2);
-  height:100vh;
+.home-section{
+  display: flex;
 }
 .home-page{
-    display:flex;
-    flex-direction: column;
-    gap:50px;
+  background: url("https://t4.ftcdn.net/jpg/02/33/38/91/360_F_233389101_WqKEjOusRliEfCrKJkyAsBqtsdyrfqj1.jpg");
+  background-size: cover;
+  background-position: center;
     padding:30px;
+    height:100vh;
+    width:50%;
     }
 
   
-.title-block{
-      background: url("https://t4.ftcdn.net/jpg/02/33/38/91/360_F_233389101_WqKEjOusRliEfCrKJkyAsBqtsdyrfqj1.jpg");
-      background-size: cover;
-      background-position: center;
-      height:300px;
-      color:#29B6F6;
-      border-radius: 0.5rem;
-      font-family: 'Lexend Deca', sans-serif;
-      text-transform: uppercase;
-      text-align: center;
-      font-size: 4rem;
-    }
+.title-block {
+  position: relative;
+  top: 35%;
+  height: 300px;
+  color: #29B6F6;
+  border-radius: 0.5rem;
+  font-family: 'Lexend Deca', sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 4rem;
+}
  .text{
   margin-top: 50px;
  }
@@ -57,11 +57,18 @@ section{
       letter-spacing: 5px;
     }
  
-  
+  .right{
+    background: #29B6F6;
+    width:50%;
+  }
   .button{
-    display:flex;
+    display: flex;
     justify-content: center;
     gap:30px;
+    width:20%;
+    position: relative;
+    top:30%;
+    left:40%;
     /* color:#006BB9; */
   }
   .button > button{
